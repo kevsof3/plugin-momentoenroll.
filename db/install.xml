@@ -1,0 +1,139 @@
+<XMLDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PATH="enrol/momentoenroll/db" VERSION="20150505" COMMENT="XMLDB file for Moodle enrol/momentoenroll plugin" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+    <TABLES>
+        <TABLE NAME="enrol_momentoenroll_users" COMMENT="Users view">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="username" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="idnumber" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="firstname" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="lastname" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="password" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="email" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="phone1" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="phone2" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="institution" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="department" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="city" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="country" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="lang" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="programa_academico" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="programa_academico_2" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+		<TABLE NAME="enrol_momentoenroll_cats" COMMENT="Categories view">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="name" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="idnumber" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="parent" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="description" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+		<TABLE NAME="enrol_momentoenroll_courses" COMMENT="Courses view">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="shortname" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="idnumber" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="category" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="fullname" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="summary" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="startdate" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="enddate" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="lang" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="enrol_momentoenroll_actions" COMMENT="Enrolments view">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="useridnumber" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="courseidnumber" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="action" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="rol" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="startdate" TYPE="char" LENGTH="256" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="enddate" TYPE="char" LENGTH="256" NOTNULL="true" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="enrol_momentoenroll_usr_upd" COMMENT="Enrolments actions log">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="datetime" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="status" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="progress" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="userscreated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="usersupdated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="datetimefinished" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="enrol_momentoenroll_cat_upd" COMMENT="Enrolments actions log">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="datetime" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="status" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="progress" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="categoriescreated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0"/>
+                <FIELD NAME="categoriesupdated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="datetimefinished" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="enrol_momentoenroll_crs_upd" COMMENT="Enrolments actions log">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="datetime" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="status" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="progress" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="coursescreated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="coursesupdated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="datetimefinished" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="enrol_momentoenroll_enrl_upd" COMMENT="Enrolments actions log">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="datetime" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="status" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="progress" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="enrolmentscreated" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="enrolmentssuspended" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="enrolmentsdeleted" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" DEFAULT="0" />
+                <FIELD NAME="datetimefinished" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="enrol_momentoenroll_logs" COMMENT="Enrolments actions log">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="status" TYPE="char" LENGTH="256" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="action" TYPE="text" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false" />
+                <FIELD NAME="timestamp" TYPE="char" LENGTH="256" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="datetime" TYPE="char" LENGTH="256" NOTNULL="true" SEQUENCE="false" />
+                </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
